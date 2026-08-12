@@ -5,6 +5,9 @@
  *  https://github.com/aolcyberchat-gpu/cytube-ring-plug
  * ================================================================
  *  VERSION HISTORY
+ *  v0.2  2026-08-11  fix: prev/next navigation broken — switched
+ *                    from <a href> (blocked by mobile browsers on
+ *                    injected scripts) to click → window.location.href
  *  v0.1  2026-08-11  initial release — floating badge style,
  *                    spy sockets for live prev/next room data,
  *                    tooltips, mailto join flow, wallet display
@@ -300,12 +303,23 @@
 
         // Helper: make a nav button
         function makeBtn(icon2, label, href, tip, disabled) {
-            var btn = document.createElement(href ? 'a' : 'div');
+            var btn = document.createElement('div');
             btn.className = 'crp-btn' + (disabled ? ' crp-disabled' : '');
-            if (href) { btn.href = href; btn.target = '_blank'; btn.rel = 'noopener noreferrer'; }
             btn.innerHTML = '<span class="crp-btn-icon">' + icon2 + '</span>'
                           + '<span>' + label + '</span>'
                           + tip;
+            if (href && !disabled) {
+                btn.style.cursor = 'pointer';
+                btn.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    // mailto opens in mail client, everything else same tab
+                    if (href.indexOf('mailto:') === 0) {
+                        window.location.href = href;
+                    } else {
+                        window.location.href = href;
+                    }
+                });
+            }
             nav.appendChild(btn);
         }
 
