@@ -5,5 +5,26 @@
     "owner":  "Andy L. Sixx",
     "vibe":   "mallgoth / 2000s nostalgia",
     "wallet": null
+  },
+  {
+    "name":   "Port33",
+    "url":    "https://cytu.be/r/Port33",
+    "owner":  "Andy L. Sixx",
+    "vibe":   "HiveStream P2P room",
+    "wallet": null
+  },
+  {
+    "name":   "Dadders",
+    "url":    "https://cytu.be/r/Dadders",
+    "owner":  "Andy L. Sixx",
+    "vibe":   "American Dad room for real Dadders",
+    "wallet": null
+  },
+  {
+    "name":   "Blogus",
+    "url":    "https://cytu.be/r/Blogus",
+    "owner":  "Andy L. Sixx",
+    "vibe":   "ping pong the Blogus game room",
+    "wallet": null
   }
 ]
